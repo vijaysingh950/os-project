@@ -3,6 +3,7 @@ import json
 import os
 from threading import Lock, RLock
 from collections import defaultdict
+from two_fa import verify_otp
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
@@ -59,8 +60,14 @@ def auth():
     data = request.json
     username = data.get('username')
     password = data.get('password')
-    
+    otp = data.get('otp', '')
+
     if username in USERS and USERS[username]["password"] == password:
+        if otp and not verify_otp(USERS[username]["2fa_secret"], otp):
+            return jsonify({
+                "status": "error",
+                "message": "Invalid OTP"
+            })
         return jsonify({
             "status": "success",
             "role": USERS[username]["role"]
