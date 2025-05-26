@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="container bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-2xl font-bold text-center mb-6">File Management System</h1>
+
+        <!-- Login Section -->
+        <div id="login-section">
+            <input id="username" type="text" placeholder="Username" class="w-full p-2 mb-4 border rounded">
+            <input id="password" type="password" placeholder="Password" class="w-full p-2 mb-4 border rounded">
+            <button id="login-btn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Login</button>
+        </div>
+
+        <!-- Main Interface (Hidden until login) -->
+        <div id="main-section" class="hidden">
+            <div id="admin-controls" class="hidden mb-4">
+                <select id="action" class="w-full p-2 mb-2 border rounded">
+                    <option value="">-- Select an Action --</option>
+                    <option value="LIST">List Files</option>
+                    <option value="CREATE">Create File</option>
+                    <option value="READ">Read File</option>
+                    <option value="EDIT">Edit File</option>
+                    <option value="DELETE">Delete File</option>
+                    <option value="LOCK">Lock File</option>
+                    <option value="UNLOCK">Unlock File</option>
+                    <option value="LIST_REQUESTS">List Requests</option>
+                </select>
+            </div>
+            <div id="user-controls" class="hidden mb-4">
+                <select id="user-action" class="w-full p-2 mb-2 border rounded">
+                    <option value="">-- Select an Action --</option>
+                    <option value="LIST">List Files</option>
+                    <option value="READ">Read File</option>
+                    <option value="MAKE_REQUEST">Make Request</option>
+                </select>
+            </div>
+            <input id="filename" type="text" placeholder="Filename" class="w-full p-2 mb-2 border rounded">
+            <textarea id="content" placeholder="File content" class="w-full p-2 mb-2 border rounded"></textarea>
+            <button id="execute-btn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Execute</button>
+            <button id="logout-btn" class="w-full bg-red-500 text-white p-2 mt-2 rounded hover:bg-red-600">Logout</button>
+            <pre id="output" class="bg-gray-100 p-4 mt-4 rounded h-48 overflow-auto"></pre>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

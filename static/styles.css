@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 500px;
+}
+
+input, textarea, button {
+    transition: all 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+} 
